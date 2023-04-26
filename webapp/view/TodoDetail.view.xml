@@ -1,0 +1,41 @@
+<mvc:View
+	controllerName="sap.ui.demo.walkthrough.controller.TodoDetail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:ui="sap.ca.ui"
+	xmlns:l="sap.ui.layout">
+	
+	<semantic:FullscreenPage title="Back" showNavButton="true" navButtonPress="onNavButtonPress">
+		
+		<l:VerticalLayout class="sapUiContentPadding" width="100%">
+			
+			<List>
+				<InputListItem label="Title :">
+					<Input value = "{/todoEditModel/title}"/>
+				</InputListItem>
+
+				<InputListItem label="Description :">
+					<Input value = "{/todoEditModel/description}"/>
+				</InputListItem>
+
+				<InputListItem label="Date :">
+					<DatePicker value = "{/todoEditModel/date}"/>
+				</InputListItem>
+
+				<InputListItem label="Status :">
+					<CheckBox id="check" selected= "{= !${/todoEditModel/status} === false ? true : false}" select="onSelectStatus"/>
+				</InputListItem>
+			
+			</List>
+	
+		</l:VerticalLayout>	
+
+			<semantic:customFooterContent>
+				<Button text="Delete" press="onRemoveTodo"/>
+				<Button text="Save" press="onUpdateTodo" type="Emphasized"/>		
+			</semantic:customFooterContent>
+	
+	</semantic:FullscreenPage>
+
+</mvc:View>

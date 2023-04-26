@@ -1,0 +1,87 @@
+{
+	"_version": "1.21.0",
+	"sap.app": {
+		"id": "sap.ui.demo.walkthrough",
+		"type": "application",
+		"title": "TodoList",
+		"description": "TodoList",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sap.ui.demo.walkthrough.view.MainRouter",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.98.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"models": {
+			
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"path": "sap.ui.demo.walkthrough.view",
+				"controlId": "rootControl",
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"name": "mainRouter",
+					"pattern": "",
+					"target": "mainRouter"
+				},
+				{
+					"name": "addTodo",
+					"pattern": "AddTodo",
+					"target": "addTodo"
+				},
+				{
+					"name": "todoList",
+					"pattern": "TodoList",
+					"target": "todoList"
+				},
+				{
+					"name": "todoDetail",
+					"pattern":"TodoList/{id}",
+					"target": "todoDetail"
+				}
+			],
+			"targets": {
+				"mainRouter": {
+					"name": "MainRouter",
+					"level": 0
+				},
+				"addTodo": {
+					"name": "AddTodo",
+					"level": 1
+				},
+				"todoList": {
+					"name": "TodoList",
+					"level": 2
+				},
+				"todoDetail": {
+					"name": "TodoDetail",
+					"level": 3
+				}
+			}
+		}
+	}
+}

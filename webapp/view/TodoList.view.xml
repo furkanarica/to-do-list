@@ -1,0 +1,31 @@
+<mvc:View
+	controllerName="sap.ui.demo.walkthrough.controller.TodoList"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:ui="sap.ca.ui"
+	displayBlock="true">
+
+	<semantic:FullscreenPage title="Back" showNavButton="true" navButtonPress="onNavButtonPress" showFooter="false">
+		<List
+            id="todoList"
+		    headerText="To Do List"
+            noDataText='"No Registration"'
+            mode="None"
+            items="{/myTodoList}">
+                            
+                <StandardListItem
+					type="Active"
+					press="onPressTodo"
+                    title="{title} | {date}"
+                    description = "{description}"
+					info="{= !${status} === false ? 'Complated' : 'Incomplate'}"
+					infoState="{= !${status} === false ? 'Information' : 'Error'}"
+					infoStateInverted="true"
+					icon = "{= !${status} === false ? 'sap-icon://accept' : 'sap-icon://decline'}"
+					iconDensityAware="false"
+                    iconInset="false"/>
+		</List>
+	
+	</semantic:FullscreenPage>
+</mvc:View>

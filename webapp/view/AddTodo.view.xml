@@ -1,0 +1,38 @@
+<mvc:View
+	controllerName="sap.ui.demo.walkthrough.controller.AddTodo"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:ui="sap.ca.ui"
+	xmlns:l="sap.ui.layout"
+	displayBlock="true">
+	
+	<semantic:FullscreenPage title="ADD TO DO">
+	
+		<l:VerticalLayout class="sapUiContentPadding" width="100%">
+			
+			<Label text = "Title:"/>
+			<Input id="title" placeholder="Add Title.." value="{/todoData/Title}"/>
+
+			<Label text = "Description:"/>
+			<Input id="description" placeholder="Add Description.." value="{/todoData/Description}"/>
+
+			<Label text = "Date:"/>
+			<DatePicker
+			id="date"
+			placeholder="Add Date.."
+			value="{/todoData/Date}"/>
+
+		</l:VerticalLayout>	
+
+		<semantic:pagingAction>
+			<Button text = "TO DO LIST" press = "onPressTodoLists" id="todoLists" type="Emphasized" />
+		</semantic:pagingAction>
+
+		<semantic:customFooterContent>
+			<Button text="Save" press="onCreateTodo" type="Emphasized"/>
+		</semantic:customFooterContent>
+
+	</semantic:FullscreenPage>
+
+</mvc:View>
